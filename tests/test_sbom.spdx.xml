@@ -1,0 +1,14 @@
+<SpdxDocument>
+  <name>My Project</name>  <packages>
+    <package>
+      <name>Component A</name>
+    </packages>  </SpdxDocument>
+
+<SpdxDocument xmlns="http://spdx.org/spdx/v2.3">
+  <name>My Project</name>
+  <packages>
+    <package>
+      <name>Component A</name>
+    </package>
+  </packages>
+</SpdxDocument>

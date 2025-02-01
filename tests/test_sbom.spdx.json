@@ -1,49 +1,51 @@
 {
-  "spdxVersion": "SPDX-3.0",
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://example.com/spdx",
   "creationInfo": {
     "created": "2025-02-01T12:00:00Z",
     "creators": [
-      "Tool: SPDX 3.0 Generator v1.0"
+      "Tool: SPDX 2.3 Generator v1.0"
     ]
   },
-  "primarySpec": "https://spdx.org/rdf/3.0",
-  "elements": [
+  "packages": [
     {
-      "elementId": "SPDXRef-Package-1",
-      "type": "Package",
+      "SPDXID": "SPDXRef-Package-example",
       "name": "example-package",
-      "supplier": {
-        "type": "Person",
-        "name": "John Doe"
-      },
-      "version": "1.2.3",
-      "externalReferences": [
-        {
-          "locator": "pkg:maven/com.example/library@1.2.3"
-        }
-      ],
+      "versionInfo": "1.2.3",
+      "downloadLocation": "pkg:maven/com.example/library@1.2.3",
+      "supplier": "Organization: Example Corp",
       "copyrightText": "(c) 2024 Example Corp.",
-      "licenseConcluded": "MIT"
-    },
-    {
-      "elementId": "SPDXRef-File-1",
-      "type": "File",
-      "name": "main.c",
-      "checksum": [
+      "licenseConcluded": "MIT",
+      "filesAnalyzed": false,
+      "checksums": [
         {
           "algorithm": "SHA256",
           "checksumValue": "3a7bd3e2360f6b9b1ff643b5b1d67e7aef9dbfcd0b5ad1d3b4f125e9e55a1b6a"
         }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "SPDXID": "SPDXRef-File-main.c",
+      "fileName": "src/main.c",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9a7bd3e2360f6b9b1ff643b5b1d67e7aef9dbfcd0b5ad1d3b4f125e9e55a1b6a"
+        }
       ],
-      "copyrightText": "(c) 2024 Example Corp.",
-      "licenseConcluded": "Apache-2.0"
+      "licenseConcluded": "Apache-2.0",
+      "fileTypes": ["SOURCE"]
     }
   ],
   "relationships": [
     {
-      "relationshipType": "DESCRIBES",
-      "from": "SPDXRef-Package-1",
-      "to": "SPDXRef-File-1"
+      "spdxElementId": "SPDXRef-Package-example",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-main.c"
     }
   ]
 }
