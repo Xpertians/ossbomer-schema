@@ -1,7 +1,7 @@
 
 # ossbomer-schema
 
-SBOM Schema Validation for SPDX and CycloneDX 📜✅
+SBOM Schema Validation for SPDX and CycloneDX.
 
 ossbomer-schema is a Python library that validates Software Bill of Materials (SBOMs) against SPDX and CycloneDX schemas. It ensures SBOMs are properly formatted in JSON and XML before further analysis.
 
