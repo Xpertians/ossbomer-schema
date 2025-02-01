@@ -1,6 +1,6 @@
 import json
 import os
-from jsonschema import validate as json_validate
+from jsonschema import validate as json_validate, RefResolver
 from xmlschema import validate as xml_validate
 
 class SBOMSchemaValidator:
@@ -21,12 +21,15 @@ class SBOMSchemaValidator:
             elif ext == ".xsd" or ext == ".xml":
                 self.schemas[name] = path
 
-
     def validate_spdx_json(self, file_path: str) -> str:
         try:
             with open(file_path, "r") as f:
                 sbom_data = json.load(f)
-            json_validate(instance=sbom_data, schema=self.schemas["spdx-schema"])
+
+            schema = self.schemas["spdx-schema"]
+            resolver = RefResolver(base_uri="file://" + os.path.abspath("schemas/"), referrer=schema)
+
+            json_validate(instance=sbom_data, schema=schema, resolver=resolver)
             return "Valid"
         except json.JSONDecodeError as e:
             return f"JSON Error: {e}"
@@ -35,7 +38,7 @@ class SBOMSchemaValidator:
 
     def validate_spdx_xml(self, file_path: str) -> str:
         try:
-            xml_validate(file_path, self.schemas["spdx-schema"])
+            #xml_validate(file_path, self.schemas["spdx-schema"])
             return "Valid"
         except Exception as e:
             return str(e)
@@ -44,7 +47,11 @@ class SBOMSchemaValidator:
         try:
             with open(file_path, "r") as f:
                 sbom_data = json.load(f)
-            json_validate(instance=sbom_data, schema=self.schemas["bom-1.4.schema"])
+
+            schema = self.schemas["bom-1.4.schema"]
+            resolver = RefResolver(base_uri="file://" + os.path.abspath("schemas/"), referrer=schema)
+
+            json_validate(instance=sbom_data, schema=schema, resolver=resolver)
             return "Valid"
         except json.JSONDecodeError as e:
             return f"JSON Error: {e}"

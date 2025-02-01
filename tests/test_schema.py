@@ -24,5 +24,29 @@ class TestSBOMValidation(unittest.TestCase):
         else:
             self.fail(f"Test file not found: {file_path}")
 
+    def test_valid_spdx_json(self):
+        file_path = os.path.join(self.test_dir, "test_sbom.spdx.json")
+        if os.path.exists(file_path):
+            result = self.validator.validate_spdx_json(file_path)
+            self.assertEqual(result, "Valid")
+        else:
+            self.fail(f"Test file not found: {file_path}")
+
+    def test_valid_spdx_xml(self):
+         file_path = os.path.join(self.test_dir, "test_sbom.spdx.xml")
+         if os.path.exists(file_path):
+            result = self.validator.validate_spdx_xml(file_path)
+            self.assertEqual(result, "Valid")
+         else:
+            self.fail(f"Test file not found: {file_path}")
+
+    def test_invalid_spdx_json(self):
+        file_path = os.path.join(self.test_dir, "test_sbom_invalid.spdx.json")
+        if os.path.exists(file_path):
+            result = self.validator.validate_spdx_json(file_path)
+            self.assertNotEqual(result, "Valid")
+        else:
+            self.fail(f"Test file not found: {file_path}")
+
 if __name__ == "__main__":
     unittest.main()

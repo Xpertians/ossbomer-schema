@@ -1,14 +1,64 @@
-<SpdxDocument>
-  <name>My Project</name>  <packages>
-    <package>
-      <name>Component A</name>
-    </packages>  </SpdxDocument>
+<?xml version="1.0" encoding="UTF-8"?>
+<SpdxDocument xmlns="http://spdx.org/spdx/v2.3"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://spdx.org/spdx/v2.3 http://spdx.org/spdx/v2.3/spdx.xsd">
+    <spdxVersion>SPDX-2.3</spdxVersion>
+    <dataLicense>CC0-1.0</dataLicense>
+    <SPDXID>SPDXRef-DOCUMENT</SPDXID>
+    <documentNamespace>https://example.com/spdx</documentNamespace>
+    <creationInfo>
+        <created>2025-02-01T12:00:00Z</created>
+        <creator>Tool: SPDX 2.3 Generator v1.0</creator>
+    </creationInfo>
+    <packages>
+        <package>
+            <SPDXID>SPDXRef-Package-example</SPDXID>
+            <name>example-package</name>
+            <versionInfo>1.2.3</versionInfo>
+            <downloadLocation>pkg:maven/com.example/library@1.2.3</downloadLocation>
+            <supplier>Organization: Example Corp</supplier>
+            <originator>Person: John Doe</originator>
+            <filesAnalyzed>false</filesAnalyzed>
+            <licenseConcluded>MIT</licenseConcluded>
+            <licenseDeclared>MIT</licenseDeclared>
+            <checksums>
+                <checksum>
+                    <algorithm>SHA256</algorithm>
+                    <checksumValue>3a7bd3e2360f6b9b1ff643b5b1d67e7aef9dbfcd0b5ad1d3b4f125e9e55a1b6a</checksumValue>
+                </checksum>
+            </checksums>
+            <externalRefs>
+                <externalRef>
+                    <referenceCategory>PACKAGE-MANAGER</referenceCategory>
+                    <referenceType>purl</referenceType>
+                    <referenceLocator>pkg:maven/com.example/library@1.2.3</referenceLocator>
+                </externalRef>
+            </externalRefs>
+        </package>
+    </packages>
 
-<SpdxDocument xmlns="http://spdx.org/spdx/v2.3">
-  <name>My Project</name>
-  <packages>
-    <package>
-      <name>Component A</name>
-    </package>
-  </packages>
+    <files>
+        <file>
+            <SPDXID>SPDXRef-File-main.c</SPDXID>
+            <fileName>src/main.c</fileName>
+            <checksums>
+                <checksum>
+                    <algorithm>SHA256</algorithm>
+                    <checksumValue>9a7bd3e2360f6b9b1ff643b5b1d67e7aef9dbfcd0b5ad1d3b4f125e9e55a1b6a</checksumValue>
+                </checksum>
+            </checksums>
+            <licenseConcluded>Apache-2.0</licenseConcluded>
+            <fileTypes>
+                <fileType>SOURCE</fileType>
+            </fileTypes>
+        </file>
+    </files>
+
+    <relationships>
+        <relationship>
+            <spdxElementId>SPDXRef-Package-example</spdxElementId>
+            <relationshipType>CONTAINS</relationshipType>
+            <relatedSpdxElement>SPDXRef-File-main.c</relatedSpdxElement>
+        </relationship>
+    </relationships>
 </SpdxDocument>
