@@ -1,0 +1,49 @@
+{
+  "spdxVersion": "SPDX-3.0",
+  "creationInfo": {
+    "created": "2025-02-01T12:00:00Z",
+    "creators": [
+      "Tool: SPDX 3.0 Generator v1.0"
+    ]
+  },
+  "primarySpec": "https://spdx.org/rdf/3.0",
+  "elements": [
+    {
+      "elementId": "SPDXRef-Package-1",
+      "type": "Package",
+      "name": "example-package",
+      "supplier": {
+        "type": "Person",
+        "name": "John Doe"
+      },
+      "version": "1.2.3",
+      "externalReferences": [
+        {
+          "locator": "pkg:maven/com.example/library@1.2.3"
+        }
+      ],
+      "copyrightText": "(c) 2024 Example Corp.",
+      "licenseConcluded": "MIT"
+    },
+    {
+      "elementId": "SPDXRef-File-1",
+      "type": "File",
+      "name": "main.c",
+      "checksum": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3a7bd3e2360f6b9b1ff643b5b1d67e7aef9dbfcd0b5ad1d3b4f125e9e55a1b6a"
+        }
+      ],
+      "copyrightText": "(c) 2024 Example Corp.",
+      "licenseConcluded": "Apache-2.0"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "DESCRIBES",
+      "from": "SPDXRef-Package-1",
+      "to": "SPDXRef-File-1"
+    }
+  ]
+}
