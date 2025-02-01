@@ -16,17 +16,23 @@ ossbomer-schema is a Python library that validates Software Bill of Materials (S
 
 You can also use ossbomer-schema as a Python library:
 
+```
 from ossbomer_schema.validator import SBOMSchemaValidator
 
 validator = SBOMSchemaValidator()
+```
 
 ### Validate SPDX JSON
+```
 result = validator.validate_spdx_json("test_sbom.spdx.json")
 print(result)  # "Valid" or error message
+```
 
 ### Validate CycloneDX XML
+```
 result = validator.validate_cyclonedx_xml("test_sbom.cdx.xml")
 print(result)  # "Valid" or error message
+```
 
 📂 SBOM Schema Support
 
@@ -45,8 +51,10 @@ Note: SPDX 3.0 does not have an official XML schema, so XML validation is unavai
 ### Testing
 
 Run the test suite with:
-
-python3 -m unittest discover tests
+```
+$ python3 -m unittest discover tests
+$ python3 -m tests.test_schema
+```
 
 ## License
 
@@ -54,11 +62,9 @@ This project is licensed under MIT.
 
 ## Future Improvements
 
-Add official SPDX 3.0 XML validation (when available).
-
-Extend schema validation for new CycloneDX versions.
-
-Integrate with ossbomer-conformance for regulatory compliance checks.
+* Add official SPDX 3.0 XML validation (when available).
+* Extend schema validation for new CycloneDX versions.
+* Integrate with ossbomer-conformance for regulatory compliance checks.
 
 ## Questions?
 
