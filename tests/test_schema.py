@@ -1,6 +1,6 @@
 import unittest
 import os
-import json # Import json
+import json
 from ossbomer_schema.validator import SBOMSchemaValidator
 
 class TestSBOMValidation(unittest.TestCase):
@@ -23,8 +23,6 @@ class TestSBOMValidation(unittest.TestCase):
             self.assertEqual(result, "Valid")
         else:
             self.fail(f"Test file not found: {file_path}")
-
-    # Add more test cases for invalid SBOMs and edge cases
 
 if __name__ == "__main__":
     unittest.main()
