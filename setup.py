@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="ossbomer-schema",
-    version="1.2.0",
+    version="1.2.1",
     author="Oscar Valenzuela",
     author_email="oscar.valenzuela.b@gmail.com",
     description="OSSBOMER - SBOM Schema Validator for SPDX and CycloneDX",
